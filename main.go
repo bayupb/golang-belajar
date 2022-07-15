@@ -14,10 +14,12 @@ func main() {
 	// fungsi route default gin github
 	r := gin.Default()
 
+	v1 := r.Group("/v1")
+
 	// TestHandler push query 
-	r.GET("/" ,  TestHandler)
-	r.GET("/genres/:id" ,  GenresHandler)
-	r.GET("/genres/query/" ,  GenresQueryHandler)
+	v1.GET("/" ,  TestHandler)
+	v1.GET("/genres/:id" ,  GenresHandler)
+	v1.GET("/genres/query/" ,  GenresQueryHandler)
 	
 	// post
 	r.POST("/genres/simpan" , PostGenresHandler)
