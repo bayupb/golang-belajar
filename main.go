@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"golang1/models"
 	"golang1/repositories"
 	"log"
 	"net/http"
@@ -15,12 +15,12 @@ func main() {
 
 	// connectiion db
 	dsn := "root:@tcp(127.0.0.1:3306)/golang-belajar?charset=utf8mb4&parseTime=True&loc=Local"
-	_, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal("Db connection failed")
 	}
 
-	fmt.Println("database connection")
+	db.AutoMigrate(&models.Genres{})
 
 	// fungsi route default gin github
 	r := gin.Default()

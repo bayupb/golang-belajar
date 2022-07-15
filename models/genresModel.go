@@ -1,4 +1,4 @@
-package genres
+package models
 
 import "time"
 
