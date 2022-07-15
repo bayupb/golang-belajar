@@ -1,5 +1,5 @@
-package Repositories
+package repositories
 
-func test(){
-	
+func test() {
+
 }
